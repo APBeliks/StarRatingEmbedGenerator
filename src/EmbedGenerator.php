@@ -1,9 +1,12 @@
 <?php
 
+
 namespace ReciproCoachEmbed;
 
-use CoachStarRatingEmbedDTO;
-use ImageGenerator;
+require '../vendor/autoload.php';
+
+use ReciproCoachEmbed\CoachStarRatingEmbedDTO;
+use ReciproCoachEmbed\ImageGenerator;
 
 require_once "helpers.php";
 
@@ -12,7 +15,7 @@ class StarRatingEmbedGenerator
     public function generateEmbed(CoachStarRatingEmbedDTO $inputData)
     {
         if (isCached($inputData->imagePath) == false) {
-            $imageGenerator = new StarRatingImageGenerator();
+            $imageGenerator = new ImageGenerator();
             $imageGenerator->generateImage($inputData);
         }
         return $this->generateHtml($inputData->imagePath, $inputData->coachUrl);
@@ -29,14 +32,3 @@ class StarRatingEmbedGenerator
                 ";
     }
 }
-
-$CoachStarRatingEmbedDTO = new CoachStarRatingEmbedDTO();
-$CoachStarRatingEmbedDTO->imageFolderPath = "testy/";
-$CoachStarRatingEmbedDTO->firstName = "Tester";
-$CoachStarRatingEmbedDTO->lastName = "Testerski";
-$CoachStarRatingEmbedDTO->coachUid = "01t92e83s74t";
-$CoachStarRatingEmbedDTO->coachUrl;
-$CoachStarRatingEmbedDTO->starRating = 4;
-$StarRatingEmbedGenerator = new StarRatingEmbedGenerator();
-
-echo $StarRatingEmbedGenerator->generateEmbed($CoachStarRatingEmbedDTO);

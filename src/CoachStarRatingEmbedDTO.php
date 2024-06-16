@@ -20,8 +20,3 @@ class CoachStarRatingEmbedDTO
         }
     }
 }
-
-$DTO = new CoachStarRatingEmbedDTO();
-$DTO->imageFolderPath = "dfgdfg";
-$DTO->coachUid = "sdf";
-echo $DTO->imagePath;

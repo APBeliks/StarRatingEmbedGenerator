@@ -1,5 +1,17 @@
 {
-    "require": {
-        "monolog/monolog": "2.1.*"
-    }
+    "name": "beliks/embed-generator",
+    "description": "Generates embedable html containing star rating png",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ReciproCoachEmbed\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "beliks"
+        }
+    ],
+    "require": {}
 }

@@ -19,8 +19,8 @@ class ImageGenerator
     private function insertStars($starRating, $fontSize)
     {
         $maxRating = 5;
-        $solidStar = imagecreatefrompng('stars/star-solid.png');
-        $emptyStar = imagecreatefrompng('stars/star-regular.png');
+        $solidStar = imagecreatefrompng('../assets/stars/star-solid.png');
+        $emptyStar = imagecreatefrompng('../assets/stars/star-regular.png');
         $starWidth = imagesx($solidStar); #assuming both solid and empty stars got same width(they should)
 
         $x = 0;
@@ -39,7 +39,7 @@ class ImageGenerator
 
     private function insertCoachFullName($firstName, $lastName, $fontSize)
     {
-        $fontPath = 'fonts/Roboto-Regular.ttf';
+        $fontPath = '../assets/fonts/Roboto-Regular.ttf';
         $fullName = $firstName . " " . $lastName;
         $white = imagecolorallocate($this->image, 255, 255, 255); #Color of font
         imagettftext($this->image, $fontSize, 0, 0, $fontSize, $white, $fontPath, $fullName);
