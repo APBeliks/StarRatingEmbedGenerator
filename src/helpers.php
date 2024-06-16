@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ReciproCoachEmbed;
 
 function isCached(string $imageFullPath): bool
 {
-    if (file_exists($imageFullPath)) {
-        $currentTime = time();
-        $creationTime = filectime($imageFullPath);
-        $isExpired = $currentTime - $creationTime > $cacheLenght;
-        return $isExpired;
+    $creationTime = @filectime($imageFullPath);
+    if ($creationTime == false) {
+        return false;
     }
-    return false;
+    return time() - $creationTime > $cacheLenght;
 }

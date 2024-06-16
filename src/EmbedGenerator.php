@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace ReciproCoachEmbed;
 
@@ -10,9 +11,9 @@ use ReciproCoachEmbed\ImageGenerator;
 
 require_once "helpers.php";
 
-class StarRatingEmbedGenerator
+class EmbedGenerator
 {
-    public function generateEmbed(CoachStarRatingEmbedDTO $inputData)
+    public function generateEmbed(CoachStarRatingEmbedDTO $inputData): string
     {
         if (isCached($inputData->imagePath) == false) {
             $imageGenerator = new ImageGenerator();

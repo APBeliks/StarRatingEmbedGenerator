@@ -3,6 +3,7 @@
     "description": "Generates embedable html containing star rating png",
     "type": "library",
     "license": "MIT",
+    "version": "1.0",
     "autoload": {
         "psr-4": {
             "ReciproCoachEmbed\\": "src/"

@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ReciproCoachEmbed;
+
 
 class ImageGenerator
 {
-    public $image;
-    public function generateImage(CoachStarRatingEmbedDTO $inputData)
+    private \GdImage $image;
+    public function generateImage(CoachStarRatingEmbedDTO $inputData): void
     {
         $this->image = imagecreatetruecolor(350, 100);
         $fontSize = 25; #its necesssery to determin y axis of stars and text
@@ -16,7 +19,7 @@ class ImageGenerator
         imagedestroy($this->image);
     }
 
-    private function insertStars($starRating, $fontSize)
+    private function insertStars(int $starRating, int $fontSize): void
     {
         $maxRating = 5;
         $solidStar = imagecreatefrompng('../assets/stars/star-solid.png');
@@ -37,11 +40,11 @@ class ImageGenerator
         imagedestroy($solidStar);
     }
 
-    private function insertCoachFullName($firstName, $lastName, $fontSize)
+    private function insertCoachFullName(string $firstName, string $lastName, int $fontSize)
     {
         $fontPath = '../assets/fonts/Roboto-Regular.ttf';
         $fullName = $firstName . " " . $lastName;
-        $white = imagecolorallocate($this->image, 255, 255, 255); #Color of font
+        $white = imagecolorallocate($this->image, 255, 255, 255);
         imagettftext($this->image, $fontSize, 0, 0, $fontSize, $white, $fontPath, $fullName);
     }
 }
