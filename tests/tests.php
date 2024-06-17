@@ -15,6 +15,7 @@ $CoachStarRatingEmbedDTO->lastName = "Testerski";
 $CoachStarRatingEmbedDTO->coachUid = "01t92e83s74t";
 $CoachStarRatingEmbedDTO->coachUrl;
 $CoachStarRatingEmbedDTO->starRating = 4;
+$CoachStarRatingEmbedDTO->imgCacheLenght = 86000;
 $StarRatingEmbedGenerator = new EmbedGenerator();
 
 echo $StarRatingEmbedGenerator->generateEmbed($CoachStarRatingEmbedDTO);

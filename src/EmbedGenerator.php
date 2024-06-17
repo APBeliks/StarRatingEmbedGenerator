@@ -15,7 +15,7 @@ class EmbedGenerator
 {
     public function generateEmbed(CoachStarRatingEmbedDTO $inputData): string
     {
-        if (isCached($inputData->imagePath) == false) {
+        if (isCached($inputData->imagePath, $inputData->imageCacheLenght) == false) {
             $imageGenerator = new ImageGenerator();
             $imageGenerator->generateImage($inputData);
         }

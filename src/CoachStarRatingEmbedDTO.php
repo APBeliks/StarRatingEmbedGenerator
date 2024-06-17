@@ -15,6 +15,7 @@ class CoachStarRatingEmbedDTO
     public string $coachUid;
     public string $coachUrl = "https://reciprocoach.com/";
     public int $starRating;
+    public int $imgCacheLenght;
     function __get($name)
     {
         if ($name == "imagePath") {
